@@ -80,6 +80,7 @@ public class EntityInitializerTest {
             var t2 = session.find(LocalResponsiveText.class, text2.getId());
             t1.remove();
             session.remove(t1);
+            LazyLoadingUtil.deepHydrate(session, text2);
             t2.remove();
             session.remove(t2);
         });
